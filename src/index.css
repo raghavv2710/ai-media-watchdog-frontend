@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Animations for fade-in, fade-in-up, fade-in-down */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease;
+  }
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: none; }
+}

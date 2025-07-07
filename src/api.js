@@ -1,4 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://ai-media-watchdog.onrender.com';
+// const API_URL = import.meta.env.VITE_API_URL || 'https://ai-media-watchdog.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:10000';
 
 export async function predictText(text) {
   try {
@@ -8,7 +9,8 @@ export async function predictText(text) {
       body: JSON.stringify({ text }),
     });
     if (!res.ok) throw new Error('API error');
-    return await res.json();
+    const data = await res.json();
+    return data.result || data; // Unwrap 'result' if present
   } catch (err) {
     return { error: err.message };
   }
@@ -23,7 +25,8 @@ export async function predictFile(file) {
       body: formData,
     });
     if (!res.ok) throw new Error('API error');
-    return await res.json();
+    const data = await res.json();
+    return data.result || data; // Unwrap 'result' if present
   } catch (err) {
     return { error: err.message };
   }
@@ -37,7 +40,8 @@ export async function predictYouTube(url) {
       body: new URLSearchParams({ url }),
     });
     if (!res.ok) throw new Error('API error');
-    return await res.json();
+    const data = await res.json();
+    return data.result || data; // Unwrap 'result' if present
   } catch (err) {
     return { error: err.message };
   }

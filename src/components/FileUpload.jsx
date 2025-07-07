@@ -1,3 +1,4 @@
+// FileUpload.jsx
 import React, { useState } from 'react';
 import { predictFile } from '../api';
 

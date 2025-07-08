@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://ai-media-watchdog.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:10000';
 
 export async function predictText(text) {
   try {
